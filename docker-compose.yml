@@ -1,0 +1,17 @@
+version: '3.6'
+networks:
+  studihub_srv:
+    name: studihub_srv
+services:
+  api:
+    image: studihub/api:0.0.6
+    restart: always
+    networks:
+      - studihub_srv
+    ports:
+      - '3030:3000'
+      - '4040:4000'
+    env_file:
+      - .env.dev
+    # volumes:
+    #   - ./firebase-adminsdk.json:/app/firebase-adminsdk.json
